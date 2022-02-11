@@ -1,8 +1,8 @@
 {% set name = "gds-lsmp" %}
-{% set version = "2.19.7" %}
+{% set version = "2.19.8" %}
 
 # dependencies
-{% set gds_base_version = "2.19.5" %}
+{% set gds_base_version = "2.19.8" %}
 
 package:
   name: {{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
-  sha256: e9475a5c7d710315e503cbf927731b505475d021fb98e317d184ac97fd139ce3
+  sha256: 8558cef4657f889dfbeb752a6265cd406f19f2339e179373b63fe9f39f869890
   patches:
     # hack the build to make it think we're using macports
     # see https://git.ligo.org/gds/gds/-/issues/69
