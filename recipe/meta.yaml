@@ -19,7 +19,7 @@ source:
 build:
   number: 0
   run_exports:
-    - {{ pin_subpackage("gds-lsmp", max_pin="x.x") }}
+    - {{ pin_subpackage("gds-lsmp", max_pin="x") }}
   skip: true  # [win]
 
 requirements:
