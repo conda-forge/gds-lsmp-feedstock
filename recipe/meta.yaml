@@ -1,5 +1,5 @@
 {% set name = "gds-lsmp" %}
-{% set version = "3.0.0" %}
+{% set version = "3.0.1" %}
 
 # dependencies
 {% set gds_base_version = "3.0.0" %}
@@ -10,11 +10,13 @@ package:
 
 source:
   url: https://software.igwn.org/sources/source/{{ name }}-{{ version }}.tar.gz
-  sha256: bbe1d5ed6a5ff2a20f35f23d73e2bf38ec1118fd8c7e277faf4cc0b967cf3c4c
+  sha256: e6e068177e81258985bb40a37449a603065340642338295046bac11f0e715b96
   patches:
     # hack the build to make it think we're using macports
     # see https://git.ligo.org/gds/gds/-/issues/69
     - macos-building_macports.patch  # [osx]
+    # fix missing uint32_t
+    - cstdint.patch
 
 build:
   number: 0
@@ -26,11 +28,10 @@ requirements:
   build:
     - gnuconfig  # [unix]
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - make
     - pkg-config
   host:
-    - gds-base >={{ gds_base_version }}
-  run:
     - gds-base >={{ gds_base_version }}
 
 test:
