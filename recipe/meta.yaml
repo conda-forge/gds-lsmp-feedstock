@@ -26,11 +26,10 @@ requirements:
   build:
     - gnuconfig  # [unix]
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - make
     - pkg-config
   host:
-    - gds-base >={{ gds_base_version }}
-  run:
     - gds-base >={{ gds_base_version }}
 
 test:
